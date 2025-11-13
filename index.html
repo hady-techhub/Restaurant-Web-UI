@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaura | Delicious Meals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: url("food-4k-spdnpz7bhmx4kv2r.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(55%);
+      z-index: -1;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 5rem;
+      width: 100%;
+    }
+
+    .nav-logo {
+      color: orange;
+      font-size: 2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .menu-bar i {
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: 0.5s;
+      display: none;
+    }
+
+    .menu-bar i:hover {
+      color: orange;
+    }
+
+    .nav-content a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .nav-content a:hover,
+    .nav-content a.active {
+      color: orange;
+    }
+
+    #select-bar {
+      background: #000;
+      opacity: .8;
+
+      font-size: 1.1rem;
+      color: orange;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    #select-bar option {
+      color: orange;
+    }
+
+    .btn {
+      background-color: orange;
+      color: white;
+      padding: 0.625rem 1.875rem;
+      border-radius: 0.313rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: darkorange;
+      transform: scale(1.05);
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      padding: 0 5%;
+      gap: 2rem;
+    }
+
+    .home-content h1 {
+      font-size: 3.5rem;
+    }
+
+    .home-content h2 {
+      font-size: 3.5rem;
+      color: orange;
+    }
+
+    .home-content p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
+
+    .home-btn {
+      margin-top: 2rem;
+    }
+
+    .home-btn a {
+      background-color: orange;
+      padding: 0.625rem 1.875rem;
+      border-radius: 0.313rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    .home-btn a:hover {
+      background-color: darkorange;
+      transform: scale(1.05);
+    }
+
+    .home-img img {
+      width: 35rem;
+      height: auto;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .foot {
+      width: 100%;
+      height: 250px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 40px 80px;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.5);
+
+    }
+
+    .foot h3 {
+      color: orange;
+      margin-bottom: 10px;
+    }
+
+    .foot ul {
+      list-style: none;
+    }
+
+    .foot a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+
+
+    @media (max-width: 992px) {
+
+      .home {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding-top: 150px;
+      }
+
+      .home-img img {
+        width: 22rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .menu-bar i {
+        display: block;
+      }
+
+      .nav-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        height: auto;
+      }
+
+      .nav-content a,
+      #select-bar,
+      .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .home {
+        padding: 100px 20px;
+      }
+
+      .home-content h1,
+      .home-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .home-img img {
+        width: 18rem;
+      }
+
+      .foot {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .foot ul {
+        padding-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .home-content h1,
+      .home-content h2 {
+        font-size: 2rem;
+      }
+
+      .home-img img {
+        width: 15rem;
+      }
+
+      #select-bar {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="menu-bar"><i class="fa-solid fa-bars"></i></div>
+        <div class="nav-logo"><i class="fa-solid fa-utensils"></i> Restaura</div>
+        <a href="#" class="active">Home</a>
+
+        <select id="select-bar">
+          <option value="menu">Menu</option>
+          <option value="southern">Southern</option>
+          <option value="northern">Northern</option>
+          <option value="non-veg">Non-Veg</option>
+          <option value="veg">Veg</option>
+        </select>
+
+        <a href="#">Contact</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#" class="btn">BOOK A TABLE</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home">
+      <div class="home-content">
+        <h1>Enjoy Our</h1>
+        <h2>Delicious Meal</h2>
+        <p>
+          Experience mouth-watering dishes prepared with love and the finest ingredients.<br>
+          From Southern spices to Northern flavors, we bring you the best of both worlds.
+        </p>
+        <div class="home-btn"><a href="#">Order Now!</a></div>
+      </div>
+
+      <div class="home-img"><img src="biryani.png" alt="Delicious Biryani"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+
+      <div>
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Chef & Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press & Media</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Our Menu</h3>
+        <ul>
+          <li><a href="#">Breakfast</a></li>
+          <li><a href="#">Lunch</a></li>
+          <li><a href="#">Dinner</a></li>
+          <li><a href="#">Desserts</a></li>
+          <li><a href="#">Beverages</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Reservations</a></li>
+          <li><a href="#">Home Delivery</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TripAdvisor</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>
